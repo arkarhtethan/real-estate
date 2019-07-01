@@ -4,11 +4,11 @@ import os
 import datetime
 # Create your models here.
 
-def upload_path(file_name):
+def upload_path(instance, file_name):
 
-    new_file_name = os.path.split(file_name)
+    new_file_name = os.path.split(file_name)[1]
 
-    prefix = datetime.datetime.now()
+    prefix = str(datetime.datetime.now())
 
     return "-".join([prefix,new_file_name])
 
