@@ -134,45 +134,7 @@
         <div class="row">
             {% for property in object_list %}
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card listing-preview">
-                        <img class="card-img-top" src="{{ property.hero_image.url }}" alt="">
-                        <div class="card-img-overlay">
-                            <h2>
-                                <span class="badge badge-secondary text-white">${{ property.price }}</span>
-                            </h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="listing-heading text-center">
-                                <h4 class="text-primary">{{ property.street }}</h4>
-                                <p>
-                                    <i class="fas fa-map-marker text-secondary"></i> {{ property.city}} {{ property.state }}, {{ property.zip }}</p>
-                            </div>
-                            <hr>
-                            <div class="row py-2 text-secondary">
-                                <div class="col-6">
-                                    <i class="fas fa-th-large"></i> Sqft: {{ property.square_feet}}</div>
-                                <div class="col-6">
-                                    <i class="fas fa-car"></i> Garage: {{ property.garage }}</div>
-                            </div>
-                            <div class="row py-2 text-secondary">
-                                <div class="col-6">
-                                    <i class="fas fa-bed"></i> Bedrooms: {{ property.bedrooms }}</div>
-                                <div class="col-6">
-                                    <i class="fas fa-bath"></i> Bathrooms: {{ property.bathrooms }}</div>
-                            </div>
-                            <hr>
-                            <div class="row py-2 text-secondary">
-                                <div class="col-12">
-                                    <i class="fas fa-user"></i> Kyle Brown</div>
-                            </div>
-                            <div class="row text-secondary pb-2">
-                                <div class="col-6">
-                                    <i class="fas fa-clock"></i> 2 days ago</div>
-                            </div>
-                            <hr>
-                            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-                        </div>
-                    </div>
+                    {% include 'property/snippets/property_card.html' with property=property %}
                 </div>
             {% endfor %}
         </div>

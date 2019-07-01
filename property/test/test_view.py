@@ -14,3 +14,5 @@ class TestPropertyHomeView(TestCase):
         response = self.client.get(self.url)
 
         self.assertEqual(response.status_code, 200)
+
+        self.assertTemplateUsed(response, 'property/home.html')
