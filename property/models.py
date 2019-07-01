@@ -50,6 +50,8 @@ class Property(models.Model):
     
     slide_img_6 = models.ImageField(upload_to=upload_path)
 
+    description = models.TextField(null=True, blank=True)
+
     class Meta:
 
         verbose_name_plural="Properties"

@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import (TemplateView, ListView, DetailView)
 from .models import Property
 
 # Create your views here.
+
+
 def index(request):
 
     return render(request, 'property/home.html')
+
 
 class PropertyHomeView(TemplateView):
 
@@ -21,6 +24,15 @@ class PropertyHomeView(TemplateView):
 
         context_data = super().get_context_data()
 
-        context_data['object_list'] = self.get_queryset().order_by('-created_at')[:3]
+        context_data['object_list'] = self.get_queryset().order_by(
+            '-created_at')[:3]
 
         return context_data
+
+class PropertyListView(ListView):
+
+    model = Property
+
+class PropertyDetailView(DetailView):
+
+    model = Property

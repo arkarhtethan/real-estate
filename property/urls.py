@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import PropertyHomeView
+from . import views
 
 app_name = 'property'
 
 urlpatterns = [
-    path('', PropertyHomeView.as_view(), name="home")
+    path('', views.PropertyHomeView.as_view(), name="home"),
+    path('property-list/', views.PropertyListView.as_view(), name="list"),
 ]

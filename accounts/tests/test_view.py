@@ -131,6 +131,7 @@ class SignUpView(TestCase):
         }
 
         response_1 = self.client.post(self.url, data)
+        
         response_2 = self.client.post(reverse("register"), data)
 
         form = response_2.context_data.get('form')
