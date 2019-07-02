@@ -1,16 +1,11 @@
 from django.db import models
-
-import os
-import datetime
+from utils.file_utils import generae_filename
 # Create your models here.
+from ckeditor_uploader.fields import RichTextUploadingField
 
 def upload_path(instance, file_name):
 
-    new_file_name = os.path.split(file_name)[1]
-
-    prefix = str(datetime.datetime.now())
-
-    return "-".join([prefix,new_file_name])
+    return generae_filename(file_name)
 
 class Property(models.Model):
 
@@ -50,7 +45,7 @@ class Property(models.Model):
     
     slide_img_6 = models.ImageField(upload_to=upload_path)
 
-    description = models.TextField(null=True, blank=True)
+    description = RichTextUploadingField()
 
     class Meta:
 

@@ -25,3 +25,15 @@ class SignUpForm(UserCreationForm):
                 raise forms.ValidationError("email already taken.")
 
         return email
+
+    def save(self, commit=True):
+        
+        user = super().save(commit=False)
+
+        user.is_staff = True
+
+        if commit:
+
+            user.save()
+
+        return user

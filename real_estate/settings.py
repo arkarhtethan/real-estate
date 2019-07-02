@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
     
     'accounts',
     'accounts.api',
@@ -159,7 +161,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # During development only
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_REDIRECT_URL = '/accounts/home/'
+LOGIN_REDIRECT_URL = '/property/'
 
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
@@ -186,3 +188,14 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
 INTERNAL_IPS = ['127.0.0.1']
+
+###########################################################################################################
+#                                        ckeditor config
+###########################################################################################################
+
+CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.file_utils.generae_filename'
+
